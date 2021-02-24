@@ -93,38 +93,52 @@ int myString::Size() {
 myString& myString::operator = (char* B) {
 
 	// TODO
-
-	return NULL;
+	*this = B;
+	return *this;
 }
 
 // overloading = operator - initialize object with an existing mystring object
 myString& myString::operator = (myString& B) {
 
 	// TODO
-
-	return NULL;
+	strArray = B.strArray;
+	return *this;
 }
 
 // checking if two myString objects are the same - return true or false
 bool myString::operator == (myString& B) {
 
 	// TODO
-
-	return false;
+	if (strArray == B.strArray) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
 }
 
 // comparison of myString A if less than myString B - return true or false
 bool myString::operator < (myString& B) {
-
-	return false;
+	//TODO
+	if (this->Size() < B.Size()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
 }
 
 // comparison of myString A if greater than myString B - return true or false
 bool myString::operator > (myString& B) {
-
-	// TODO
-
-	return false;
+	//TODO
+	if (this->Size() > B.Size()) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 // get one token from redirected input and return that string (alphanumeric)
@@ -283,6 +297,8 @@ int main() {
 
 	//Now read a text and put them in the bagOfWords instance.
 	bagOfWords* myBag = new bagOfWords();
+
+	token = getNextToken(); // v2: this was the error.
 
 	while (token != NULL)
 	{
